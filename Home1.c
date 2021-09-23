@@ -32,7 +32,7 @@ int main() {
             array_bin[counter++] = sym;
         } else return 2;
     }
-	//Проверяем каким является число
+    //Проверяем каким является число (-|+)
     if ((array_bin[0] - '0') == 1 && (array_bin[31] != '\0')) {
         res = bin_dec(1, 32, array_bin);
         res = ~(2147483647 - res);
