@@ -6,7 +6,8 @@
 <i>Выволнить задание на языке программирования Си(С).</i>
 <h2 align="center">Описание</h2>
 Программа считывает введённые данные и записывает их в массив. Паралельно делается проверка на числа 1 и 0 и и происходит подсчёт количества чисел чтобы избежать переполнения.
-<<`c
+
+```c
     while ((sym = getchar()) != '\n') {
         if (isbool(sym)) {
             if (counter > 31) {
@@ -15,31 +16,40 @@
             }
             array_bin[counter++] = sym;
         } else return 2;
-    }`<<
+    }
+```
 Функция для проверки на 1 и 0.
-<<`{C} {int isbool(char s) {
+```c
+int isbool(char s) {
     if ((s != '1') && (s != '0')) {
         printf("You made a mistake. There not must be letters and numbers from 2 to 9.\n");
         return 0;
     } else return 1;
-}}`<<
+}
+```
 После записи в массив проверяем каким числом является введённое положительным или отрицательным.
-<<`{C} {    if ((array_bin[0] - '0') == 1 && (array_bin[31] != '\0')) {
+```c
+    if ((array_bin[0] - '0') == 1 && (array_bin[31] != '\0')) {
         res = bin_dec(1, 32, array_bin);
         res = ~(2147483647 - res);
     } else {
         res = bin_dec(0, counter, array_bin);
-    }}`<<
+    }
+```
 Функция перевода числа из довичной системы в десятичную.
-<<`{C} {int bin_dec(int min, int max, char * arr) {
+```c
+int bin_dec(int min, int max, char * arr) {
     int k = 0;
     for (int i = min; i < max; i++) {
         k = (arr[i] - '0') + k * 2;
     }
     return k;
-}}`<<
+}
+```
 И после происходит вывод числа.
-<<`{C} {printf("%d\n", res);}`<<
+```c
+printf("%d\n", res);
+```
 <h3 align="center">Если выдаёт ошибки</h3>
 Ошибка 1 означает: было введено слишком большое число.
 Ошибка 2 означает: вводились цифры и буквы помимо 1 и 0.
