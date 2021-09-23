@@ -4,7 +4,7 @@
 //Функция для отсева, если число не состоит только из двоичного кода программа закрывается
 int isbool(char s) {
     if ((s != '1') && (s != '0')) {
-        printf("You made a mistake. There must be letters and numbers from 2 to 9.\n");
+        printf("You made a mistake. There not must be letters and numbers from 2 to 9.\n");
         return 0;
     } else return 1;
 }
