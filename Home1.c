@@ -25,14 +25,14 @@ int main() {
     while ((sym = getchar()) != '\n') {
         if (isbool(sym)) {
             // Проверка на переполнение
-            if (counter > 32) {
+            if (counter > 31) {
                 printf("You entered too large a number!\n");
                 return 1;
             }
             array_bin[counter++] = sym;
-        } else return 1;
+        } else return 2;
     }
-
+	//Проверяем каким является число
     if ((array_bin[0] - '0') == 1 && (array_bin[31] != '\0')) {
         res = bin_dec(1, 32, array_bin);
         res = ~(2147483647 - res);
